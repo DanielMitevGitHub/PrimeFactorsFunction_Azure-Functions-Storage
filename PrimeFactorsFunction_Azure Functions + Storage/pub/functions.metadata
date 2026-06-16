@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Function1",
+    "scriptFile": "PrimeFactorsFunction_Azure Functions \u002B Storage.dll",
+    "entryPoint": "PrimeFactorsFunction_Azure_Functions___Storage.Function1.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "get",
+          "post"
+        ],
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  }
+]

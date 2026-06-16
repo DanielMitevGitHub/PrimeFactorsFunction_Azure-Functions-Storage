@@ -1,0 +1,10 @@
+{
+  "description": {
+    "language": "dotnet-isolated",
+    "extensions": [ ".dll" ],
+    "defaultExecutablePath": "dotnet",
+    "defaultWorkerPath": "PrimeFactorsFunction_Azure Functions + Storage.dll",
+    "workerIndexing": "true",
+    "canUsePlaceholder": true
+  }
+}

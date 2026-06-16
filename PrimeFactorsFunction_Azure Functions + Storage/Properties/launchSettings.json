@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "PrimeFactorsFunction_Azure_Functions___Storage": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7275",
+      "launchBrowser": false
+    }
+  }
+}
