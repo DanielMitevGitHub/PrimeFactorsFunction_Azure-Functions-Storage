@@ -1,0 +1,23 @@
+az login
+az account show
+
+az group create --name PrimeFactorsRG --location germanywestcentral
+az group list --output table
+
+az provider show --namespace Microsoft.Storage --query registrationState
+az provider register --namespace Microsoft.Storage
+
+az storage account create --name dmprimefactors2026 --resource-group PrimeFactorsRG --location germanywestcentral --sku Standard_LRS
+
+az functionapp create -n dm-primefactors-function -g PrimeFactorsRG --runtime dotnet-isolated --runtime-version 8 --functions-version 4 --consumption-plan-location germanywestcentral --storage dmprimefactors2026
+az functionapp list --output table
+
+cd "C:\Users\ITA8-TN02\source\repos\PrimeFactorsFunction_Azure Functions + Storage\PrimeFactorsFunction_Azure Functions + Storage"
+
+dir *.csproj
+
+dotnet publish -o pub
+
+Compress-Archive -Path ".\pub\*" -DestinationPath app.zip
+
+az functionapp deployment source config-zip -n dm-primefactors-function -g PrimeFactorsRG --src app.zip
